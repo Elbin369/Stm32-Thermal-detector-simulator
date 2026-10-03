@@ -51,3 +51,7 @@ STM32F103C8T6 Blue Pill
  └── Power & Ground
       ├── 3.3V / 5V  ────────► VCC (Sensors, OLED, Buzzer)
       └── GND        ────────► GND (Common Ground)
+
+
+
+To View : https://wokwi.com/projects/476828600027886593
