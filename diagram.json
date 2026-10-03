@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "author": "Elbin Sam",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-stm32-bluepill", "id": "stm32", "top": 17.84, "left": 15.57, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -54.46,
+      "left": 269.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "greenLed",
+      "top": 274.8,
+      "left": 253.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "blueLed",
+      "top": 180,
+      "left": 350,
+      "attrs": { "color": "blue" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "redLed",
+      "top": 169.2,
+      "left": 445.4,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resGreen",
+      "top": 311.15,
+      "left": 153.6,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resBlue",
+      "top": 240,
+      "left": 350,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "resRed",
+      "top": 240,
+      "left": 450,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": -7.2,
+      "left": 472.2,
+      "attrs": { "volume": "0.3" }
+    }
+  ],
+  "connections": [
+    [ "stm32:B7", "oled1:SDA", "green", [ "h-23.63", "v189.84", "h561.23", "v-401.04" ] ],
+    [
+      "stm32:B6",
+      "oled1:SCL",
+      "yellow",
+      [ "h-33.23", "v228.24", "h590.03", "v-449.04", "h-259.5" ]
+    ],
+    [ "stm32:3V3.2", "oled1:VCC", "red", [ "h17.27", "v-115.2", "h211.05" ] ],
+    [ "stm32:GND.3", "oled1:GND", "black", [ "v-124.8", "h218.87" ] ],
+    [ "stm32:A1", "greenLed:A", "green", [ "v17.04", "h204.84", "v134.4" ] ],
+    [ "greenLed:C", "resGreen:1", "green", [] ],
+    [ "resGreen:2", "stm32:GND.1", "black", [] ],
+    [ "stm32:A2", "blueLed:A", "blue", [ "h300.84", "v66.24" ] ],
+    [ "blueLed:C", "resBlue:1", "blue", [] ],
+    [ "resBlue:2", "stm32:GND.1", "black", [ "v13.55", "h-351.2", "v-55.44" ] ],
+    [ "stm32:A3", "redLed:A", "red", [ "h425.64", "v75.84" ] ],
+    [ "redLed:C", "resRed:1", "red", [] ],
+    [ "resRed:2", "stm32:GND.1", "black", [ "v23.15", "h-460.8", "v-65.04" ] ],
+    [ "stm32:A4", "buzzer:1", "purple", [] ],
+    [ "buzzer:2", "stm32:GND.2", "black", [ "v19.2", "h-374.8", "v-65.04" ] ],
+    [ "stm32:A9", "$serialMonitor:RX", "", [] ],
+    [ "stm32:A10", "$serialMonitor:TX", "", [] ]
+  ],
+  "dependencies": {}
+}
